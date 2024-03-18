@@ -33,8 +33,8 @@ export default function Topic(articles) {
   
 export async function getServerSideProps(context){
     const {slug} = context.params
-    console.log(slug)
-    const url = `https://newsense-api.vercel.app/news?category=${slug}`
+ 
+    const url = `https://newsense-api.vercel.app/news?category=${slug.lowercase()}`
     const res = await fetch(url);
     const articles = await res.json();
 
